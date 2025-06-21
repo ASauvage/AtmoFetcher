@@ -18,18 +18,24 @@ if __name__ == "__main__":
                           help="Exclude packages from the build.")
     build_ap.add_argument('-T', '--no-textfile', action='store_true',
                           help="Avoid generating a versioning textfile.")
+    build_ap.add_argument('-O', '--overwrite', action='store_true',
+                          help="Overwrite the output folder if it exists.")
     
     fetch_ap = sp.add_parser('fetch', help="Fetch package information.")
     fetch_ap.add_argument('-e', '--exclude', nargs='*', default=[],
                           help="Exclude packages from the fetch operation.")
+    
+    list_ap = sp.add_parser('list', help="List available packages.")
 
 
     args = ap.parse_args()
 
     match args.command:
         case 'build':
-            athmofetch.build(args.file, args.exclude)
+            athmofetch.build(args.file, args.exclude, args.overwrite, args.verbose)
         case 'fetch':
             athmofetch.fetch(args.file, args.exclude)
+        case 'list':
+            athmofetch.listpkgs(args.file)
         case _:
             ap.print_usage()
