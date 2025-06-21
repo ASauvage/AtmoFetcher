@@ -1,10 +1,10 @@
-import athmofetch
+import atmofetch
 from argparse import ArgumentParser
 
 
 if __name__ == "__main__":
     ap = ArgumentParser(prog='athmofetch', description="A simple command-line tool.")
-    ap.add_argument('-v', '--version', action='version', version='%(prog)s v' + athmofetch.__version__,
+    ap.add_argument('-v', '--version', action='version', version='%(prog)s v' + atmofetch.__version__,
                     help="Show %(prog)s version")
     ap.add_argument('-V', '--verbose', action='store_true',
                     help="Enable verbose output.")
@@ -32,10 +32,10 @@ if __name__ == "__main__":
 
     match args.command:
         case 'build':
-            athmofetch.build(args.file, args.exclude, args.overwrite, args.verbose)
+            atmofetch.build(args.file, args.exclude, args.overwrite, args.verbose)
         case 'fetch':
-            athmofetch.fetch(args.file, args.exclude)
+            atmofetch.fetch(args.file, args.exclude)
         case 'list':
-            athmofetch.listpkgs(args.file)
+            atmofetch.listpkgs(args.file)
         case _:
             ap.print_usage()
