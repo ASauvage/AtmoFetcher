@@ -1,0 +1,141 @@
+[
+    {
+        "name": "hekate",
+        "link": "CTCaer/hekate",
+        "desiredFiles": [
+            {
+                "filename": "hekate.zip",
+                "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[azA-A]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/hekate.zip,{SD_DIR}",
+                    "MOVE:{SD_DIR}/hekate.bin,{SD_DIR}/athmosphere/reboot_to_payload.bin"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Atmosphere",
+        "link": "Atmosphere-NX/Atmosphere",
+        "desiredFiles": [
+            {
+                "filename": "athmosphere.zip",
+                "patern": "^athmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/athmosphere.zip,{SD_DIR}"
+                ]
+            },
+            {
+                "filename": "fusee.bin",
+                "patern": "^fusee\\.bin$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/fusee.bin,{PAYLOADS_DIR}",
+                    "COPY:{PAYLOADS_DIR}/fusee.bin,{SD_DIR}/bootloader/payloads"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sys-patch",
+        "link": "impeeza/sys-patch",
+        "desiredFiles": [
+            {
+                "filename": "sys-patch.zip",
+                "patern": "^sys-patch-\\d+\\.\\d+\\.\\d+\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sys-patch",
+        "link": "impeeza/sys-patch",
+        "desiredFiles": [
+            {
+                "filename": "sys-patch.zip",
+                "patern": "^sys-patch-\\d+\\.\\d+\\.\\d+\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "EdiZon",
+        "link": "WerWolv/Edizon",
+        "desiredFiles": [
+            {
+                "filename": "EdiZon.nro",
+                "patern": "^EdiZon\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/EdiZon.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Goldleaf",
+        "link": "XorTroll/Goldleaf",
+        "desiredFiles": [
+            {
+                "filename": "Goldleaf.nro",
+                "patern": "^Goldleaf\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/Goldleaf.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "JKSV",
+        "link": "J-D-K/JKSV",
+        "desiredFiles": [
+            {
+                "filename": "JKSV.nro",
+                "patern": "^JKSV\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/JKSV.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ftpd",
+        "link": "mtheall/ftpd",
+        "desiredFiles": [
+            {
+                "filename": "ftpd.nro",
+                "patern": "^ftpd\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/ftpd.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "TinWoo",
+        "link": "mrdude2478/TinWoo-Release",
+        "desiredFiles": [
+            {
+                "filename": "tinwoo.zip",
+                "patern": "^TinWoo-Installer\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/tinwoo.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Switch_90DNS_tester",
+        "link": "meganukebmp/Switch_90DNS_tester",
+        "desiredFiles": [
+            {
+                "filename": "Switch_90DNS_tester.nro",
+                "patern": "^Switch_90DNS_tester\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/Switch_90DNS_tester.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    }
+]
