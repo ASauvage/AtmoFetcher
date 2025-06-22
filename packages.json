@@ -18,11 +18,11 @@
         "link": "Atmosphere-NX/Atmosphere",
         "desiredFiles": [
             {
-                "filename": "athmosphere.zip",
-                "patern": "^athmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+                "filename": "atmosphere.zip",
+                "patern": "^atmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\+hbmenu-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
                 "actions": [
-                    "EXTRACT:{TMP_DIR}/athmosphere.zip,{SD_DIR}",
-                    "COPY:{PAYLOADS_DIR}/hekate.bin,{SD_DIR}/athmosphere/reboot_to_payload.bin"
+                    "EXTRACT:{TMP_DIR}/atmosphere.zip,{SD_DIR}",
+                    "COPY:{PAYLOADS_DIR}/hekate.bin,{SD_DIR}/atmosphere/reboot_to_payload.bin"
                 ]
             },
             {
@@ -41,20 +41,7 @@
         "desiredFiles": [
             {
                 "filename": "sys-patch.zip",
-                "patern": "^sys-patch-\\d+\\.\\d+\\.\\d+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
-                ]
-            }
-        ]
-    },
-    {
-        "name": "sys-patch",
-        "link": "impeeza/sys-patch",
-        "desiredFiles": [
-            {
-                "filename": "sys-patch.zip",
-                "patern": "^sys-patch-\\d+\\.\\d+\\.\\d+\\.zip$",
+                "patern": "^sys-patch\\.zip$",
                 "actions": [
                     "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
                 ]
@@ -119,7 +106,7 @@
         "desiredFiles": [
             {
                 "filename": "tinwoo.zip",
-                "patern": "^TinWoo-Installer\\.zip$",
+                "patern": "^Tinwoo-Installer\\.zip$",
                 "actions": [
                     "EXTRACT:{TMP_DIR}/tinwoo.zip,{SD_DIR}"
                 ]
