@@ -24,7 +24,7 @@ AtmoFetcher is a script designed to automate the process of downloading multiple
     ```
 4. Copy the generated archive to your SD card and insert it into your Nintendo Switch.
 
->[warning]
+>[!WARNING] 
 >This project is intended for legal homebrew use only. Do not use it to download or distribute copyrighted or illegal content.
 
 
