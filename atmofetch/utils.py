@@ -13,7 +13,3 @@ def get_packages(file_path: str, excluded_pkg: list) -> list:
         packages = loads(file.read())
     
     return [pkg for pkg in packages if pkg['name'].lower() not in excluded_pkg]
-
-
-# def download_file(git_path: str, filename)
-# https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin
