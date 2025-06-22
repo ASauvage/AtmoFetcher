@@ -125,5 +125,19 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "Switch-Firmware",
+        "link": "THZoria/NX_Firmware",
+        "desiredFiles": [
+            {
+                "filename": "firmware.zip",
+                "patern": "^Firmware\\.[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+                "actions": [
+                    "MKDIR:{SD_DIR}/firmware",
+                    "EXTRACT:{TMP_DIR}/firmware.zip,{SD_DIR}/firmware"
+                ]
+            }
+        ]
     }
 ]
