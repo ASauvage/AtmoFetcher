@@ -52,7 +52,7 @@ def build(config: str, exclude: list, verbose: bool = False) -> None:
             continue
         pkg_data = pkg_data.json()
         
-        text_version += f"║> {pkg['name']:21}║ {pkg_data['tag_name']:>6} ║\n"
+        text_version += f"║> {pkg['name']:23}║ {pkg_data['tag_name']:>7} ║\n"
         for file in pkg['desiredFiles']:
             link: str
 
