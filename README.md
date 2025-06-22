@@ -8,6 +8,10 @@ AtmoFetcher is a script designed to automate the process of downloading multiple
 - Builds a structured SD card archive for immediate use
 - Ensures you have the latest versions of your favorite tools
 
+## Requirements
+
+- Python 3.10 or higher
+
 ## Usage
 
 1. Clone this repository:
@@ -20,19 +24,8 @@ AtmoFetcher is a script designed to automate the process of downloading multiple
     ```
 4. Copy the generated archive to your SD card and insert it into your Nintendo Switch.
 
-## Requirements
+>[warning]
+>This project is intended for legal homebrew use only. Do not use it to download or distribute copyrighted or illegal content.
 
-- Python 3.x
-- Internet connection
-
-## Disclaimer
-
-This project is intended for legal homebrew use only. Do not use it to download or distribute copyrighted or illegal content.
-
-## License
-
-MIT License
-
-## Acknowledgements
 
 Special thanks to THZoria and his project [AtmoPackVanilla](https://github.com/THZoria/AtmoPackVanilla) for inspiring the creation of this project.
