@@ -32,3 +32,7 @@ This project is intended for legal homebrew use only. Do not use it to download 
 ## License
 
 MIT License
+
+## Acknowledgements
+
+Special thanks to THZoria and his project [AtmoPackVanilla](https://github.com/THZoria/AtmoPackVanilla) for inspiring the creation of this project.
