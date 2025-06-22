@@ -1,4 +1,4 @@
-from os import getcwd, remove
+from os import getcwd, remove, makedirs
 from os.path import isfile, isdir
 from shutil import move, copy, rmtree
 from zipfile import ZipFile
@@ -23,6 +23,7 @@ class Command:
     EXTRACT:<source>,<target>
     MOVE:<source>,<target>
     COPY:<source>,<target>
+    MKDIR:<target>
     REMOVE:<source>
     """
     def __init__(self, command: str, verbose: bool = False):
@@ -38,6 +39,8 @@ class Command:
                 self._move(*args)
             case 'COPY':
                 self._copy(*args)
+            case 'MKDIR':
+                self._mkdir(*args)
             case 'REMOVE':
                 self._remove(*args)
             case _:
@@ -62,6 +65,9 @@ class Command:
 
     def _copy(self, source: str, target: str) -> None:
         copy(source, target)
+
+    def _mkdir(self, target: str) -> None:
+        makedirs(target, exist_ok=True)
 
     def _remove(self, source: str) -> None:
         if isfile(source):

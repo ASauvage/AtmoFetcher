@@ -21,8 +21,10 @@ MAJOR_VERSION = 1
 MINOR_VERSION = 0
 __version__ = '.'.join((str(MAJOR_VERSION), str(MINOR_VERSION)))
 
+FIRMWARES_LINK = "https://api.github.com/repos/THZoria/NX_Firmware/releases/latest"
 
-def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = False) -> None:
+
+def build(config: str, exclude: list, verbose: bool = False) -> None:
     """Build an Athmosphere structure folder"""
 
     print(__doc__)
@@ -33,25 +35,25 @@ def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = F
         makedirs('output/SD/')
         makedirs('output/payloads/')
     except FileExistsError:
-        print('Fail\n:: there is already an output folder, please remove it before running this command.')
+        print('fail\nthere is already an output folder, please remove it before running this command.')
         exit(1)
     makedirs('tmp/', exist_ok=True)
     print("Done")
 
 
     pkgs = get_packages(file_path=config, excluded_pkg=exclude)
-    text_version = ""
+    text_version = "╔═══════════════════════════════════╗\n║         BUILD RELEASES         ║\n╠═════════════════════════╦═════════╣\n"
 
     for pkg in pkgs:
         print(f":: fetching {pkg['name']}...", end="")
 
         pkg_data = get(f"https://api.github.com/repos/{pkg['link']}/releases/latest")
         if not pkg_data.status_code == 200:
-            print(f":: {pkg['name']} not founds.")
+            print(f"fail\n'{pkg['name']}' not founds.")
             continue
         pkg_data = pkg_data.json()
-
-        text_version += f"{pkg['link']}: [{pkg_data['tag_name']}]"
+        
+        text_version += f"║> {pkg['name']:21}║ {pkg_data['tag_name']:>6} ║\n"
         for file in pkg['desiredFiles']:
             link: str
 
@@ -61,7 +63,7 @@ def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = F
                     break
 
             if not link:
-                print(f"\n unable to found {file['filename']} in assets")
+                print(f"\nunable to found {file['filename']} in assets")
                 continue
 
             dfile = get(link)
@@ -73,7 +75,16 @@ def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = F
             for action in file['actions']:
                 Command(command=action, verbose=verbose)
                 
-        print("Done")
+        print("done")
+    
+    print(":: fetching firmware...", end="")
+    with open('output/README.txt', 'w', encoding='utf-8') as f:
+        f.write("This build was created using atmofetch.\n")
+        f.write(text_version + "╚═════════════════════════╩═════════╝")
+
+    print("done",
+          ":: build complete!",
+          "You can now copy the 'output/SD' folder to your SD card.", sep="\n")
     
 
 def fetch(config: str, exclude: list) -> None:
