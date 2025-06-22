@@ -54,12 +54,19 @@ def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = F
         text_version += f"{pkg['link']}: [{pkg_data['tag_name']}]"
         for file in pkg['desiredFiles']:
             link: str
+
             for asset in pkg_data['assets']:
                 if match(file['patern'], asset['name']):
                     link = asset['browser_download_url']
                     break
 
+            if not link:
+                print(f"\n unable to found {file['filename']} in assets")
+                continue
+
             dfile = get(link)
+            link = None
+
             with open(f'tmp/{file['filename']}', 'wb') as f:
                 f.write(dfile.content)
 
