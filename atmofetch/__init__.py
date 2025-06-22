@@ -29,13 +29,13 @@ def build(config: str, exclude: list, overwrite: bool = False, verbose: bool = F
 
     # create folders structure
     print(":: creating folders structure...", end="")
-    makedirs('tmp/', exist_ok=True)
     try:
         makedirs('output/SD/')
         makedirs('output/payloads/')
     except FileExistsError:
         print('Fail\n:: there is already an output folder, please remove it before running this command.')
         exit(1)
+    makedirs('tmp/', exist_ok=True)
     print("Done")
 
 

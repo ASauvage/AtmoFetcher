@@ -5,10 +5,10 @@
         "desiredFiles": [
             {
                 "filename": "hekate.zip",
-                "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[azA-A]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+                "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[a-zA-Z]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
                 "actions": [
                     "EXTRACT:{TMP_DIR}/hekate.zip,{SD_DIR}",
-                    "MOVE:{SD_DIR}/hekate.bin,{SD_DIR}/athmosphere/reboot_to_payload.bin"
+                    "MOVE:{SD_DIR}/hekate_ctcaer_6.3.1.bin,{PAYLOADS_DIR}/hekate.bin"
                 ]
             }
         ]
@@ -21,7 +21,8 @@
                 "filename": "athmosphere.zip",
                 "patern": "^athmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
                 "actions": [
-                    "EXTRACT:{TMP_DIR}/athmosphere.zip,{SD_DIR}"
+                    "EXTRACT:{TMP_DIR}/athmosphere.zip,{SD_DIR}",
+                    "COPY:{PAYLOADS_DIR}/hekate.bin,{SD_DIR}/athmosphere/reboot_to_payload.bin"
                 ]
             },
             {
