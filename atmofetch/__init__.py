@@ -40,7 +40,6 @@ def build(config: str, exclude: list, verbose: bool = False) -> None:
     makedirs('tmp/', exist_ok=True)
     print("Done")
 
-
     pkgs = get_packages(file_path=config, excluded_pkg=exclude)
     text_version = "╔═══════════════════════════════════╗\n║         BUILD RELEASES         ║\n╠═════════════════════════╦═════════╣\n"
 
@@ -81,9 +80,12 @@ def build(config: str, exclude: list, verbose: bool = False) -> None:
     with open('output/README.txt', 'w', encoding='utf-8') as f:
         f.write("This build was created using atmofetch.\n")
         f.write(text_version + "╚═════════════════════════╩═════════╝")
+    print("done\n:: deleting tmp folder...", end="")
+
+    Command("REMOVE:{TMP_DIR}")
 
     print("done",
-          ":: build complete!",
+          ":: build complete!\n",
           "You can now copy the 'output/SD' folder to your SD card.", sep="\n")
     
 
