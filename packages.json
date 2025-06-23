@@ -8,7 +8,7 @@
                 "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[a-zA-Z]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
                 "actions": [
                     "EXTRACT:{TMP_DIR}/hekate.zip,{SD_DIR}",
-                    "MOVE:{SD_DIR}/hekate_ctcaer_6.3.1.bin,{PAYLOADS_DIR}/hekate.bin"
+                    "MOVE:{SD_DIR}/hekate_ctcaer_*.bin,{PAYLOADS_DIR}"
                 ]
             }
         ]
@@ -22,7 +22,7 @@
                 "patern": "^atmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\+hbmenu-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
                 "actions": [
                     "EXTRACT:{TMP_DIR}/atmosphere.zip,{SD_DIR}",
-                    "COPY:{PAYLOADS_DIR}/hekate.bin,{SD_DIR}/atmosphere/reboot_to_payload.bin"
+                    "COPY:{PAYLOADS_DIR}/hekate_ctcaer_*.bin,{SD_DIR}/atmosphere/reboot_to_payload.bin"
                 ]
             },
             {
@@ -31,6 +31,20 @@
                 "actions": [
                     "MOVE:{TMP_DIR}/fusee.bin,{PAYLOADS_DIR}",
                     "COPY:{PAYLOADS_DIR}/fusee.bin,{SD_DIR}/bootloader/payloads"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NX-Firmware",
+        "link": "THZoria/NX_Firmware",
+        "desiredFiles": [
+            {
+                "filename": "firmware.zip",
+                "patern": "^Firmware\\.[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+                "actions": [
+                    "MKDIR:{SD_DIR}/firmware",
+                    "EXTRACT:{TMP_DIR}/firmware.zip,{SD_DIR}/firmware"
                 ]
             }
         ]
@@ -127,16 +141,162 @@
         ]
     },
     {
-        "name": "Switch-Firmware",
-        "link": "THZoria/NX_Firmware",
+        "name": "NXGallery",
+        "link": "iUltimateLP/NXGallery",
         "desiredFiles": [
             {
-                "filename": "firmware.zip",
-                "patern": "^Firmware\\.[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "actions": [
-                    "MKDIR:{SD_DIR}/firmware",
-                    "EXTRACT:{TMP_DIR}/firmware.zip,{SD_DIR}/firmware"
+                "filename": "NXGallery.zip",
+                "patern": "^NXGallery_[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z0-9]+\\.zip$",
+                "action": [
+                    "EXTRACT:{TMP_DIR}/NXGallery.zip,{SD_DIR}"
                 ]
+            }
+        ]
+    },
+    {
+        "name": "NX-Shell",
+        "link": "joel16/NX-Shell",
+        "desiredFiles": [
+            {
+                "filename": "NX-Shell.nro",
+                "patern": "^NX-Shell\\.nro$",
+                "action": [
+                    "MOVE:{TMP_DIR}/NX-Shell.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "NXThemesInstaller",
+        "link": "exelix11/SwitchThemeInjector",
+        "desiredFiles": [
+            {
+                "filename": "NXThemesInstaller.nro",
+                "patern": "^NXThemesInstaller\\.nro$",
+                "action": [
+                    "MOVE:{TMP_DIR}/NXThemesInstaller.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "SysDVR",
+        "link": "exelix11/SysDVR",
+        "desiredFiles": [
+            {
+                "filename": "sys-dvr.zip",
+                "patern": "^SysDVR\\.zip$",
+                "action": [
+                    "EXTRACT:{TMP_DIR}/sys-dvr.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "ldn_mitn",
+        "link": "spacemeowx2/ldn_mitn",
+        "desiredFiles": [
+            {
+                "filename": "ldn_mitn.zip",
+                "patern": "^ldn_mitn_v[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+                "action": [
+                    "EXTRACT:{TMP_DIR}/ldn_mitn.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Hekate-Toolbox",
+        "link": "WerWolv/Hekate-Toolbox",
+        "desiredFiles": [
+            {
+                "filename": "HekateToolbox.nro",
+                "patern": "^HekateToolbox\\.nro$",
+                "action": [
+                    "MOVE:{TMP_DIR}/HekateToolbox.nro,{SD_DIR}/switch"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "emuiibo",
+        "link": "",
+        "desiredFiles": [
+            {
+                "filename": "",
+                "patern": "",
+                "action": []
+            }
+        ]
+    },
+    {
+        "name": "ovlSysmodules",
+        "link": "WerWolv/ovl-sysmodules",
+        "desiredFiles": [
+            {
+                "filename": "ovlSysmodules.ovl",
+                "patern": "^ovlSysmodules\\.ovl$",
+                "action": [
+                    "MKDIR:{SD_DIR}/switch/.overlays",
+                    "MOVE:{TMP_DIR}/ovlSysmodules.ovl,{SD_DIR}/switch/.overlays"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "nx-ovlloader",
+        "link": "WerWolv/nx-ovlloader",
+        "desiredFiles": [
+            {
+                "filename": "",
+                "patern": "",
+                "action": []
+            }
+        ]
+    },
+    {
+        "name": "BootSoundNX",
+        "link": "",
+        "desiredFiles": [
+            {
+                "filename": "",
+                "patern": "",
+                "action": []
+            }
+        ]
+    },
+    {
+        "name": "QuickNTP",
+        "link": "nedex/QuickNTP",
+        "desiredFiles": [
+            {
+                "filename": "quickntp.zip",
+                "patern": "^quickntp-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+                "action": [
+                    "EXTRACT:{TMP_DIR}/quickntp.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "sysdvr-overlay",
+        "link": "",
+        "desiredFiles": [
+            {
+                "filename": "",
+                "patern": "",
+                "action": []
+            }
+        ]
+    },
+    {
+        "name": "NX-Activity-Log",
+        "link": "",
+        "desiredFiles": [
+            {
+                "filename": "",
+                "patern": "",
+                "action": []
             }
         ]
     }
