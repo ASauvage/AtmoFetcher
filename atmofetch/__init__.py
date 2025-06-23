@@ -18,7 +18,7 @@ from .interpretor import Command
 
 
 MAJOR_VERSION = 1
-MINOR_VERSION = 0
+MINOR_VERSION = 1
 __version__ = '.'.join((str(MAJOR_VERSION), str(MINOR_VERSION)))
 
 FIRMWARES_LINK = "https://api.github.com/repos/THZoria/NX_Firmware/releases/latest"
