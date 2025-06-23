@@ -3,7 +3,7 @@ from argparse import ArgumentParser, FileType
 
 
 if __name__ == "__main__":
-    ap = ArgumentParser(prog='athmofetch', description="A simple command-line tool.")
+    ap = ArgumentParser(prog='athmofetch', description="A simple command-line tool to build your Atmosphere SD archive.")
     ap.add_argument('-v', '--version', action='version', version='%(prog)s v' + atmofetch.__version__,
                     help="Show %(prog)s version")
     ap.add_argument('-f', '--package-file', dest="file", default='packages.json',

@@ -36,5 +36,3 @@
 ## Credits
 
 Special thanks to [THZoria](https://github.com/THZoria) and the [AtmoPackVanilla](https://github.com/THZoria/AtmoPackVanilla) project for inspiration and guidance.
-
----
