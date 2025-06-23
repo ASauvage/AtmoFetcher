@@ -147,7 +147,7 @@
             {
                 "filename": "NXGallery.zip",
                 "patern": "^NXGallery_[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z0-9]+\\.zip$",
-                "action": [
+                "actions": [
                     "EXTRACT:{TMP_DIR}/NXGallery.zip,{SD_DIR}"
                 ]
             }
@@ -160,7 +160,7 @@
             {
                 "filename": "NX-Shell.nro",
                 "patern": "^NX-Shell\\.nro$",
-                "action": [
+                "actions": [
                     "MOVE:{TMP_DIR}/NX-Shell.nro,{SD_DIR}/switch"
                 ]
             }
@@ -173,7 +173,7 @@
             {
                 "filename": "NXThemesInstaller.nro",
                 "patern": "^NXThemesInstaller\\.nro$",
-                "action": [
+                "actions": [
                     "MOVE:{TMP_DIR}/NXThemesInstaller.nro,{SD_DIR}/switch"
                 ]
             }
@@ -186,7 +186,7 @@
             {
                 "filename": "sys-dvr.zip",
                 "patern": "^SysDVR\\.zip$",
-                "action": [
+                "actions": [
                     "EXTRACT:{TMP_DIR}/sys-dvr.zip,{SD_DIR}"
                 ]
             }
@@ -199,7 +199,7 @@
             {
                 "filename": "ldn_mitn.zip",
                 "patern": "^ldn_mitn_v[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "action": [
+                "actions": [
                     "EXTRACT:{TMP_DIR}/ldn_mitn.zip,{SD_DIR}"
                 ]
             }
@@ -212,7 +212,7 @@
             {
                 "filename": "HekateToolbox.nro",
                 "patern": "^HekateToolbox\\.nro$",
-                "action": [
+                "actions": [
                     "MOVE:{TMP_DIR}/HekateToolbox.nro,{SD_DIR}/switch"
                 ]
             }
@@ -236,7 +236,7 @@
             {
                 "filename": "ovlSysmodules.ovl",
                 "patern": "^ovlSysmodules\\.ovl$",
-                "action": [
+                "actions": [
                     "MKDIR:{SD_DIR}/switch/.overlays",
                     "MOVE:{TMP_DIR}/ovlSysmodules.ovl,{SD_DIR}/switch/.overlays"
                 ]
@@ -248,20 +248,37 @@
         "link": "WerWolv/nx-ovlloader",
         "desiredFiles": [
             {
-                "filename": "",
-                "patern": "",
-                "action": []
+                "filename": " nx-ovlloader.zip ",
+                "patern": "^ nx-ovlloader\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/nx-ovlloader.zip,{SD_DIR}"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Tesla-Menu",
+        "link": "WerWolv/Tesla-Menu",
+        "desiredFiles": [
+            {
+                "filename": "ovlmenu.zip",
+                "patern": "^ovlmenu\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/ovlmenu.zip,{SD_DIR}"
+                ]
             }
         ]
     },
     {
         "name": "BootSoundNX",
-        "link": "",
+        "link": "KranKRival/BootSoundNX",
         "desiredFiles": [
             {
-                "filename": "",
-                "patern": "",
-                "action": []
+                "filename": "bootsoundNX.zip",
+                "patern": "^BootSoundNX\\.zip$",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/bootsoundNX.zip,{SD_DIR}"
+                ]
             }
         ]
     },
@@ -272,7 +289,7 @@
             {
                 "filename": "quickntp.zip",
                 "patern": "^quickntp-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "action": [
+                "actions": [
                     "EXTRACT:{TMP_DIR}/quickntp.zip,{SD_DIR}"
                 ]
             }
@@ -283,20 +300,24 @@
         "link": "",
         "desiredFiles": [
             {
-                "filename": "",
-                "patern": "",
-                "action": []
+                "filename": "sys-dvr-overlay.zip",
+                "patern": "^SysDVR-Overlay-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip",
+                "actions": [
+                    "EXTRACT:{TMP_DIR}/sys-dvr-overlay.zip,{SD_DIR}"
+                ]
             }
         ]
     },
     {
         "name": "NX-Activity-Log",
-        "link": "",
+        "link": "zdm65477730/NX-Activity-Log",
         "desiredFiles": [
             {
-                "filename": "",
-                "patern": "",
-                "action": []
+                "filename": "NX-Activity-Log.nro",
+                "patern": "^NX-Activity-Log\\.nro$",
+                "actions": [
+                    "MOVE:{TMP_DIR}/NX-Activity-Log.nro,{SD_DIR}/switch"
+                ]
             }
         ]
     }
