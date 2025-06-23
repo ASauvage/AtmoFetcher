@@ -69,7 +69,6 @@ class Command:
         files = glob(source)
         for file in files:
             copy(file, target)
-            
 
     def _mkdir(self, target: str) -> None:
         makedirs(target, exist_ok=True)
