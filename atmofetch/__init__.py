@@ -12,24 +12,22 @@ r"""
 
 from requests import get
 from re import match
-from os import makedirs
-from .utils import get_packages
+from os import makedirs, getenv
+from .utils import get_packages, get_excluded_packages
 from .interpretor import Command
 
 
 MAJOR_VERSION = 1
-MINOR_VERSION = 0
+MINOR_VERSION = 1
 __version__ = '.'.join((str(MAJOR_VERSION), str(MINOR_VERSION)))
 
-FIRMWARES_LINK = "https://api.github.com/repos/THZoria/NX_Firmware/releases/latest"
+GITHUB_API_TOKEN = getenv('GITHUB_API_TOKEN')
 
 
-def build(config: str, exclude: list, verbose: bool = False) -> None:
+def build(config: str, exclude: list = [], verbose: bool = False) -> None:
     """Build an Athmosphere structure folder"""
-
     print(__doc__)
 
-    # create folders structure
     print(":: creating folders structure...", end="")
     try:
         makedirs('output/SD/')
@@ -44,17 +42,19 @@ def build(config: str, exclude: list, verbose: bool = False) -> None:
     text_version = "╔═══════════════════════════════════╗\n║         BUILD RELEASES         ║\n╠═════════════════════════╦═════════╣\n"
 
     for pkg in pkgs:
-        print(f":: fetching {pkg['name']}...", end="")
+        print(f":: fetching {pkg['name']}...", end="", flush=True)
 
-        pkg_data = get(f"https://api.github.com/repos/{pkg['link']}/releases/latest")
+        pkg_data = get(f"https://api.github.com/repos/{pkg['link']}/releases/latest", headers={"Authorization": f"Bearer {GITHUB_API_TOKEN}"})
         if not pkg_data.status_code == 200:
-            print(f"fail\n'{pkg['name']}' not founds.")
+            print(f"fail\n    └ {pkg['name']} not founds.")
             continue
         pkg_data = pkg_data.json()
         
         text_version += f"║> {pkg['name']:23}║ {pkg_data['tag_name']:>7} ║\n"
         for file in pkg['desiredFiles']:
-            link: str
+            if verbose:
+                print(f"\n    └fetching '{file['filename']}'...", end="", flush=True)
+            link = ""
 
             for asset in pkg_data['assets']:
                 if match(file['patern'], asset['name']):
@@ -62,25 +62,26 @@ def build(config: str, exclude: list, verbose: bool = False) -> None:
                     break
 
             if not link:
-                print(f"\nunable to found {file['filename']} in assets")
+                print(f"{'fail' if verbose else ''}\n    └ unable to found {file['filename']} in assets")
                 continue
 
             dfile = get(link)
-            link = None
 
             with open(f'tmp/{file['filename']}', 'wb') as f:
                 f.write(dfile.content)
+            if verbose:
+                print(f"done")
 
             for action in file['actions']:
                 Command(command=action, verbose=verbose)
                 
         print("done")
     
-    print(":: fetching firmware...", end="")
+    print(":: writing README output...", end="", flush=True)
     with open('output/README.txt', 'w', encoding='utf-8') as f:
         f.write("This build was created using atmofetch.\n")
         f.write(text_version + "╚═════════════════════════╩═════════╝")
-    print("done\n:: deleting tmp folder...", end="")
+    print("done\n:: deleting tmp folder...", end="", flush=True)
 
     Command("REMOVE:{TMP_DIR}")
 
