@@ -1,339 +1,352 @@
 [
-    {
-        "name": "hekate",
-        "link": "CTCaer/hekate",
-        "desiredFiles": [
-            {
-                "filename": "hekate.zip",
-                "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[a-zA-Z]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/hekate.zip,{SD_DIR}",
-                    "MOVE:{SD_DIR}/hekate_ctcaer_*.bin,{PAYLOADS_DIR}"
-                ]
-            }
+  {
+    "name": "hekate",
+    "link": "CTCaer/hekate",
+    "desiredFiles": [
+      {
+        "filename": "hekate.zip",
+        "patern": "^hekate_ctcaer_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+_[a-zA-Z]+_[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/hekate.zip,{SD_DIR}",
+          "MOVE:{SD_DIR}/hekate_ctcaer_*.bin,{PAYLOADS_DIR}"
         ]
-    },
-    {
-        "name": "Atmosphere",
-        "link": "Atmosphere-NX/Atmosphere",
-        "desiredFiles": [
-            {
-                "filename": "atmosphere.zip",
-                "patern": "^atmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\+hbmenu-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/atmosphere.zip,{SD_DIR}",
-                    "COPY:{PAYLOADS_DIR}/hekate_ctcaer_*.bin,{SD_DIR}/atmosphere/reboot_to_payload.bin"
-                ]
-            },
-            {
-                "filename": "fusee.bin",
-                "patern": "^fusee\\.bin$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/fusee.bin,{PAYLOADS_DIR}",
-                    "COPY:{PAYLOADS_DIR}/fusee.bin,{SD_DIR}/bootloader/payloads"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Atmosphere",
+    "link": "Atmosphere-NX/Atmosphere",
+    "desiredFiles": [
+      {
+        "filename": "atmosphere.zip",
+        "patern": "^atmosphere-(\\d+(\\.\\d+))((\\.\\d+))-[a-zA-Z]+-[a-zA-Z0-9]+\\+hbl-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\+hbmenu-[0-9]*\\.[0-9]+[0-9]*\\.[0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/atmosphere.zip,{SD_DIR}",
+          "COPY:{PAYLOADS_DIR}/hekate_ctcaer_*.bin,{SD_DIR}/atmosphere/reboot_to_payload.bin"
         ]
-    },
-    {
-        "name": "NX-Firmware",
-        "link": "THZoria/NX_Firmware",
-        "desiredFiles": [
-            {
-                "filename": "firmware.zip",
-                "patern": "^Firmware\\.[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "actions": [
-                    "MKDIR:{SD_DIR}/firmware",
-                    "EXTRACT:{TMP_DIR}/firmware.zip,{SD_DIR}/firmware"
-                ]
-            }
+      },
+      {
+        "filename": "fusee.bin",
+        "patern": "^fusee\\.bin$",
+        "actions": [
+          "MOVE:{TMP_DIR}/fusee.bin,{PAYLOADS_DIR}",
+          "COPY:{PAYLOADS_DIR}/fusee.bin,{SD_DIR}/bootloader/payloads"
         ]
-    },
-    {
-        "name": "sys-patch",
-        "link": "impeeza/sys-patch",
-        "desiredFiles": [
-            {
-                "filename": "sys-patch.zip",
-                "patern": "^sys-patch\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "NX-Firmware",
+    "link": "THZoria/NX_Firmware",
+    "desiredFiles": [
+      {
+        "filename": "firmware.zip",
+        "patern": "^Firmware\\.[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+        "actions": [
+          "MKDIR:{SD_DIR}/firmware",
+          "EXTRACT:{TMP_DIR}/firmware.zip,{SD_DIR}/firmware"
         ]
-    },
-    {
-        "name": "EdiZon",
-        "link": "WerWolv/Edizon",
-        "desiredFiles": [
-            {
-                "filename": "EdiZon.nro",
-                "patern": "^EdiZon\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/EdiZon.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "EdiZon",
+    "link": "WerWolv/Edizon",
+    "desiredFiles": [
+      {
+        "filename": "EdiZon.nro",
+        "patern": "^EdiZon\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/EdiZon.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "Goldleaf",
-        "link": "XorTroll/Goldleaf",
-        "desiredFiles": [
-            {
-                "filename": "Goldleaf.nro",
-                "patern": "^Goldleaf\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/Goldleaf.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Goldleaf",
+    "link": "XorTroll/Goldleaf",
+    "desiredFiles": [
+      {
+        "filename": "Goldleaf.nro",
+        "patern": "^Goldleaf\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/Goldleaf.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "JKSV",
-        "link": "J-D-K/JKSV",
-        "desiredFiles": [
-            {
-                "filename": "JKSV.nro",
-                "patern": "^JKSV\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/JKSV.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Hekate-Toolbox",
+    "link": "WerWolv/Hekate-Toolbox",
+    "desiredFiles": [
+      {
+        "filename": "HekateToolbox.nro",
+        "patern": "^HekateToolbox\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/HekateToolbox.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "ftpd",
-        "link": "mtheall/ftpd",
-        "desiredFiles": [
-            {
-                "filename": "ftpd.nro",
-                "patern": "^ftpd\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/ftpd.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "JKSV",
+    "link": "J-D-K/JKSV",
+    "desiredFiles": [
+      {
+        "filename": "JKSV.nro",
+        "patern": "^JKSV\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/JKSV.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "TinWoo",
-        "link": "mrdude2478/TinWoo-Release",
-        "desiredFiles": [
-            {
-                "filename": "tinwoo.zip",
-                "patern": "^Tinwoo-Installer\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/tinwoo.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Ls-News",
+    "link": "PoloNX/Ls-News",
+    "desiredFiles": [
+      {
+        "filename": "Ls-News.nro",
+        "patern": "^Ls-News\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/Ls-News.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "Switch_90DNS_tester",
-        "link": "meganukebmp/Switch_90DNS_tester",
-        "desiredFiles": [
-            {
-                "filename": "Switch_90DNS_tester.nro",
-                "patern": "^Switch_90DNS_tester\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/Switch_90DNS_tester.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "MissionControl",
+    "link": "ndeadly/MissionControl",
+    "desiredFiles": [
+      {
+        "filename": "mission-control.zip",
+        "patern": "^MissionControl-[0-9]+\\.[0-9]+\\.[0-9]+-[a-z]+-[a-z0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/mission-control.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "NXGallery",
-        "link": "iUltimateLP/NXGallery",
-        "desiredFiles": [
-            {
-                "filename": "NXGallery.zip",
-                "patern": "^NXGallery_[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/NXGallery.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "NX-Activity-Log",
+    "link": "zdm65477730/NX-Activity-Log",
+    "desiredFiles": [
+      {
+        "filename": "NX-Activity-Log.nro",
+        "patern": "^NX-Activity-Log\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/NX-Activity-Log.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "NX-Shell",
-        "link": "joel16/NX-Shell",
-        "desiredFiles": [
-            {
-                "filename": "NX-Shell.nro",
-                "patern": "^NX-Shell\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/NX-Shell.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "NX-Shell",
+    "link": "joel16/NX-Shell",
+    "desiredFiles": [
+      {
+        "filename": "NX-Shell.nro",
+        "patern": "^NX-Shell\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/NX-Shell.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "NXThemesInstaller",
-        "link": "exelix11/SwitchThemeInjector",
-        "desiredFiles": [
-            {
-                "filename": "NXThemesInstaller.nro",
-                "patern": "^NXThemesInstaller\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/NXThemesInstaller.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "NXGallery",
+    "link": "iUltimateLP/NXGallery",
+    "desiredFiles": [
+      {
+        "filename": "NXGallery.zip",
+        "patern": "^NXGallery_[0-9]+\\.[0-9]+\\.[0-9]+-[a-zA-Z0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/NXGallery.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "SysDVR",
-        "link": "exelix11/SysDVR",
-        "desiredFiles": [
-            {
-                "filename": "sys-dvr.zip",
-                "patern": "^SysDVR\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/sys-dvr.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "NXThemesInstaller",
+    "link": "exelix11/SwitchThemeInjector",
+    "desiredFiles": [
+      {
+        "filename": "NXThemesInstaller.nro",
+        "patern": "^NXThemesInstaller\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/NXThemesInstaller.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "ldn_mitm",
-        "link": "spacemeowx2/ldn_mitm",
-        "desiredFiles": [
-            {
-                "filename": "ldn_mitm.zip",
-                "patern": "^ldn_mitm_v[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/ldn_mitm.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "QuickNTP",
+    "link": "nedex/QuickNTP",
+    "desiredFiles": [
+      {
+        "filename": "quickntp.zip",
+        "patern": "^quickntp-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/quickntp.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "Hekate-Toolbox",
-        "link": "WerWolv/Hekate-Toolbox",
-        "desiredFiles": [
-            {
-                "filename": "HekateToolbox.nro",
-                "patern": "^HekateToolbox\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/HekateToolbox.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Switch_90DNS_tester",
+    "link": "meganukebmp/Switch_90DNS_tester",
+    "desiredFiles": [
+      {
+        "filename": "Switch_90DNS_tester.nro",
+        "patern": "^Switch_90DNS_tester\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/Switch_90DNS_tester.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "emuiibo",
-        "link": "XorTroll/emuiibo",
-        "desiredFiles": [
-            {
-                "filename": "emuiibo.zip",
-                "patern": "^emuiibo\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/emuiibo.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "SysDVR",
+    "link": "exelix11/SysDVR",
+    "desiredFiles": [
+      {
+        "filename": "sys-dvr.zip",
+        "patern": "^SysDVR\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/sys-dvr.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "ovlSysmodules",
-        "link": "WerWolv/ovl-sysmodules",
-        "desiredFiles": [
-            {
-                "filename": "ovlSysmodules.ovl",
-                "patern": "^ovlSysmodules\\.ovl$",
-                "actions": [
-                    "MKDIR:{SD_DIR}/switch/.overlays",
-                    "MOVE:{TMP_DIR}/ovlSysmodules.ovl,{SD_DIR}/switch/.overlays"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "Tesla-Menu",
+    "link": "WerWolv/Tesla-Menu",
+    "desiredFiles": [
+      {
+        "filename": "ovlmenu.zip",
+        "patern": "^ovlmenu\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/ovlmenu.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "nx-ovlloader",
-        "link": "WerWolv/nx-ovlloader",
-        "desiredFiles": [
-            {
-                "filename": "nx-ovlloader.zip",
-                "patern": "^nx-ovlloader\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/nx-ovlloader.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "TinWoo",
+    "link": "mrdude2478/TinWoo-Release",
+    "desiredFiles": [
+      {
+        "filename": "tinwoo.zip",
+        "patern": "^Tinwoo-Installer\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/tinwoo.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "Tesla-Menu",
-        "link": "WerWolv/Tesla-Menu",
-        "desiredFiles": [
-            {
-                "filename": "ovlmenu.zip",
-                "patern": "^ovlmenu\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/ovlmenu.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "emuiibo",
+    "link": "XorTroll/emuiibo",
+    "desiredFiles": [
+      {
+        "filename": "emuiibo.zip",
+        "patern": "^emuiibo\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/emuiibo.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "QuickNTP",
-        "link": "nedex/QuickNTP",
-        "desiredFiles": [
-            {
-                "filename": "quickntp.zip",
-                "patern": "^quickntp-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/quickntp.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "ftpd",
+    "link": "mtheall/ftpd",
+    "desiredFiles": [
+      {
+        "filename": "ftpd.nro",
+        "patern": "^ftpd\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/ftpd.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "sysdvr-overlay",
-        "link": "Hartie95/sysdvr-overlay",
-        "desiredFiles": [
-            {
-                "filename": "sys-dvr-overlay.zip",
-                "patern": "^SysDVR-Overlay-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/sys-dvr-overlay.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "hb-appstore",
+    "link": "fortheusers/hb-appstore",
+    "desiredFiles": [
+      {
+        "filename": "appstore.nro",
+        "patern": "^appstore\\.nro$",
+        "actions": [
+          "MOVE:{TMP_DIR}/appstore.nro,{SD_DIR}/switch"
         ]
-    },
-    {
-        "name": "NX-Activity-Log",
-        "link": "zdm65477730/NX-Activity-Log",
-        "desiredFiles": [
-            {
-                "filename": "NX-Activity-Log.nro",
-                "patern": "^NX-Activity-Log\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/NX-Activity-Log.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "ldn_mitm",
+    "link": "spacemeowx2/ldn_mitm",
+    "desiredFiles": [
+      {
+        "filename": "ldn_mitm.zip",
+        "patern": "^ldn_mitm_v[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/ldn_mitm.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "Ls-News",
-        "link": "PoloNX/Ls-News",
-        "desiredFiles": [
-            {
-                "filename": "Ls-News.nro",
-                "patern": "^Ls-News\\.nro$",
-                "actions": [
-                    "MOVE:{TMP_DIR}/Ls-News.nro,{SD_DIR}/switch"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "nx-ovlloader",
+    "link": "WerWolv/nx-ovlloader",
+    "desiredFiles": [
+      {
+        "filename": "nx-ovlloader.zip",
+        "patern": "^nx-ovlloader\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/nx-ovlloader.zip,{SD_DIR}"
         ]
-    },
-    {
-        "name": "MissionControl",
-        "link": "ndeadly/MissionControl",
-        "desiredFiles": [
-            {
-                "filename": "mission-control.zip",
-                "patern": "^MissionControl-[0-9]+\\.[0-9]+\\.[0-9]+-[a-z]+-[a-z0-9]+\\.zip$",
-                "actions": [
-                    "EXTRACT:{TMP_DIR}/mission-control.zip,{SD_DIR}"
-                ]
-            }
+      }
+    ]
+  },
+  {
+    "name": "ovlSysmodules",
+    "link": "WerWolv/ovl-sysmodules",
+    "desiredFiles": [
+      {
+        "filename": "ovlSysmodules.ovl",
+        "patern": "^ovlSysmodules\\.ovl$",
+        "actions": [
+          "MKDIR:{SD_DIR}/switch/.overlays",
+          "MOVE:{TMP_DIR}/ovlSysmodules.ovl,{SD_DIR}/switch/.overlays"
         ]
-    }
+      }
+    ]
+  },
+  {
+    "name": "sys-patch",
+    "link": "impeeza/sys-patch",
+    "desiredFiles": [
+      {
+        "filename": "sys-patch.zip",
+        "patern": "^sys-patch\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/sys-patch.zip,{SD_DIR}"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sysdvr-overlay",
+    "link": "Hartie95/sysdvr-overlay",
+    "desiredFiles": [
+      {
+        "filename": "sys-dvr-overlay.zip",
+        "patern": "^SysDVR-Overlay-[0-9]+\\.[0-9]+\\.[0-9]+\\.zip$",
+        "actions": [
+          "EXTRACT:{TMP_DIR}/sys-dvr-overlay.zip,{SD_DIR}"
+        ]
+      }
+    ]
+  }
 ]
