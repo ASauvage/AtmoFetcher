@@ -48,8 +48,7 @@ class Command:
                 raise UnknownAction(action_key)
         
         if self.verbose:
-            print(f"└performing action: {action_key} > {','.join(args)}") 
-
+            print(f"    └ performing action: {action_key} > {', '.join(args)}") 
 
     @staticmethod
     def _args_formater(args: str) -> list[str]:
@@ -67,7 +66,10 @@ class Command:
             move(file, target)
 
     def _copy(self, source: str, target: str) -> None:
-        copy(source, target)
+        files = glob(source)
+        for file in files:
+            copy(file, target)
+            
 
     def _mkdir(self, target: str) -> None:
         makedirs(target, exist_ok=True)
@@ -75,9 +77,7 @@ class Command:
     def _remove(self, source: str) -> None:
         if isfile(source):
             remove(source)
-
         elif isdir(source):
             rmtree(source)
-
         else:
             raise FileNotFoundError(source)
