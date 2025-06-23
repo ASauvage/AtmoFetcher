@@ -47,7 +47,7 @@ class Command:
                 raise UnknownAction(action_key)
         
         if self.verbose:
-            print(f":: {action_key} > {','.join(args)}") 
+            print(f"└performing action: {action_key} > {','.join(args)}") 
 
 
     @staticmethod
