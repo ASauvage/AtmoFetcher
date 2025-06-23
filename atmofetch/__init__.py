@@ -12,7 +12,7 @@ r"""
 
 from requests import get
 from re import match
-from os import makedirs
+from os import makedirs, getenv
 from .utils import get_packages, get_excluded_packages
 from .interpretor import Command
 
@@ -20,6 +20,8 @@ from .interpretor import Command
 MAJOR_VERSION = 1
 MINOR_VERSION = 1
 __version__ = '.'.join((str(MAJOR_VERSION), str(MINOR_VERSION)))
+
+GITHUB_API_TOKEN = getenv('GITHUB_API_TOKEN')
 
 
 def build(config: str, exclude: list = [], verbose: bool = False) -> None:
@@ -42,16 +44,16 @@ def build(config: str, exclude: list = [], verbose: bool = False) -> None:
     for pkg in pkgs:
         print(f":: fetching {pkg['name']}...", end="", flush=True)
 
-        pkg_data = get(f"https://api.github.com/repos/{pkg['link']}/releases/latest")
+        pkg_data = get(f"https://api.github.com/repos/{pkg['link']}/releases/latest", headers={"Authorization": f"Bearer {GITHUB_API_TOKEN}"})
         if not pkg_data.status_code == 200:
-            print(f"fail\n└ '{pkg['name']}' not founds.")
+            print(f"fail\n    └ {pkg['name']} not founds.")
             continue
         pkg_data = pkg_data.json()
         
         text_version += f"║> {pkg['name']:23}║ {pkg_data['tag_name']:>7} ║\n"
         for file in pkg['desiredFiles']:
             if verbose:
-                print(f"\n└fetching '{file['filename']}'...", end="", flush=True)
+                print(f"\n    └fetching '{file['filename']}'...", end="", flush=True)
             link = ""
 
             for asset in pkg_data['assets']:
@@ -60,7 +62,7 @@ def build(config: str, exclude: list = [], verbose: bool = False) -> None:
                     break
 
             if not link:
-                print(f"{'fail\n' if verbose else ''}└unable to found {file['filename']} in assets")
+                print(f"{'fail' if verbose else ''}\n    └ unable to found {file['filename']} in assets")
                 continue
 
             dfile = get(link)
