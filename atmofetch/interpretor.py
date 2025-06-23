@@ -1,6 +1,7 @@
 from os import getcwd, remove, makedirs
 from os.path import isfile, isdir
 from shutil import move, copy, rmtree
+from glob import glob
 from zipfile import ZipFile
 
 
@@ -61,7 +62,9 @@ class Command:
             zip_ref.extractall(target)
 
     def _move(self, source: str, target: str) -> None:
-        move(source, target)
+        files = glob(source)
+        for file in files:
+            move(file, target)
 
     def _copy(self, source: str, target: str) -> None:
         copy(source, target)
