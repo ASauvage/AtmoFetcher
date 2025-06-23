@@ -21,8 +21,6 @@ MAJOR_VERSION = 1
 MINOR_VERSION = 1
 __version__ = '.'.join((str(MAJOR_VERSION), str(MINOR_VERSION)))
 
-FIRMWARES_LINK = "https://api.github.com/repos/THZoria/NX_Firmware/releases/latest"
-
 
 def build(config: str, exclude: list = [], verbose: bool = False) -> None:
     """Build an Athmosphere structure folder"""
